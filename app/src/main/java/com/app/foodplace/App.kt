@@ -6,8 +6,6 @@ import com.app.data.repository.PlacesRepository
 import com.app.domain.repository.ILocationRepository
 import com.app.domain.repository.IPlacesRepository
 import com.app.foodplace.viewmodel.LocationViewModel
-import io.realm.Realm
-import io.realm.RealmConfiguration
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -27,11 +25,6 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
-        Realm.init(this)
-        val config = RealmConfiguration.Builder().build()
-        Realm.setDefaultConfiguration(config)
-
         startKoin {
             androidContext(this@App)
             modules(
